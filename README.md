@@ -4,9 +4,9 @@ https://github.com/DNadas98/node_server
 
 ## Install & run
 
-- run from the root directory
 - npm i
-- npm run dev
+- run from the root directory
+- node backend/server.js or npm run dev
 
 ## File structure
 
