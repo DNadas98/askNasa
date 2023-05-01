@@ -1,4 +1,9 @@
-# My minimal Node.js server
+# Ask NASA
+- The page can fetch data from the Astronomy Picture of the Day open api of NASA.
+- Frontend: One of my coding bootcamp projects
+- Backend: My minimal no framework Node.js server
+
+## My Node.js server
 
 https://github.com/DNadas98/node_server
 
