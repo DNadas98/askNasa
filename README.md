@@ -13,6 +13,13 @@ https://github.com/DNadas98/node_server
 - run from the root directory
 - node backend/server.js or npm run dev
 
+## Query filtering
+- By default all queries are removed from the request url.
+- To remove this, comment out the following line in backend/server.js:
+  ```js
+  filteredUrl = req.url.replace(`?${queryString}`, '');
+  ```
+
 ## File structure
 
 - backend
