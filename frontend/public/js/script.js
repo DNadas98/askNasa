@@ -56,6 +56,7 @@ async function askNasa(date) {
   try {
     const data = await fetchData(date);
     displayContent(data);
+    console.clear();
   } catch (error) {
     console.error(`Error fetching data from NASA API:\n${error.message}`);
   }
