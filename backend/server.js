@@ -94,6 +94,14 @@ const server = http.createServer((req, res) => {
   delete req.headers.host;
   delete req.headers.authorization;
 
+  //Set security headers
+  res.setHeader(
+    'Content-Security-Policy',
+    "default-src 'self'; script-src 'self'; style-src 'self'; img-src *; frame-src 'self' https://www.youtube.com; object-src 'none'; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; connect-src 'self' https://api.nasa.gov/planetary/apod;"
+  );
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+
   //Set path
   let filePath =
     contentType === 'text/html' && filteredUrl === '/'
