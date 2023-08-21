@@ -69,31 +69,7 @@ const server = http.createServer((req, res) => {
     default:
       contentType = 'text/html';
   }
-
-  //Filter out all queries
-  const firstQueryStartIndex = req.url.indexOf('?');
-  const anchorIndex = req.url.indexOf('#');
-  let queryString = '';
-  let filteredUrl = req.url;
-  if (firstQueryStartIndex !== -1) {
-    if (anchorIndex === -1 || (anchorIndex !== -1 && anchorIndex < firstQueryStartIndex)) {
-      //no # or # before first ?
-      queryString = req.url.split('?')[1];
-    } else {
-      //# after first ?
-      queryString = req.url.split('#')[1].split('?')[1];
-    }
-  }
-  //Comment next line out to remove query filter
-  filteredUrl = req.url.replace(`?${queryString}`, '');
-    
-  //Remove request body and clear out some headers - not needed to serve static files
-  req.body = {};
-  delete req.headers.cookie;
-  delete req.headers.referer;
-  delete req.headers.host;
-  delete req.headers.authorization;
-
+  
   //Set security headers
   res.setHeader(
     'Content-Security-Policy',
